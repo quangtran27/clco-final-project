@@ -10,24 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7467fcf6-9809-453c-a6c3-a47a75bc88a5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/.idea/artifacts/demo01_war.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/.idea/artifacts/demo01_war_exploded.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/src/main/java/com/example/demo01/HelloServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo01/src/main/webapp/index.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +178,7 @@
       <workItem from="1669610069277" duration="5029000" />
       <workItem from="1669616699293" duration="1867000" />
       <workItem from="1670129354888" duration="2388000" />
-      <workItem from="1670332557166" duration="2253000" />
+      <workItem from="1670332557166" duration="4558000" />
     </task>
     <servers />
   </component>
