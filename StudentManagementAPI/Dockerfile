@@ -25,5 +25,6 @@ COPY target/backend.war /usr/local/tomcat/webapps/
 RUN mv /usr/local/tomcat/webapps/backend.war /usr/local/tomcat/webapps/ROOT.war
 # print ls
 RUN ls -l /usr/local/tomcat/webapps/
-
+#  deploy war file
+#  remove war file
 CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
