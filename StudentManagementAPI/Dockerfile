@@ -21,6 +21,8 @@ MAINTAINER bhaskarndas@gmail.com
 
 # copy wwar file from target to webapps
 COPY target/backend.war /usr/local/tomcat/webapps/
+#  rename war file to ROOT.war
+RUN mv /usr/local/tomcat/webapps/backend.war /usr/local/tomcat/webapps/ROOT.war
 # print ls
 RUN ls -l
 
