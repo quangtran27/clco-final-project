@@ -21,6 +21,7 @@ MAINTAINER bhaskarndas@gmail.com
 
 WORKDIR /usr/local/tomcat/webapps
 RUN curl -O -L https://github.com/bhaskarndas/sample-war/raw/main/sampletest.war
+RUN mv sampletest.war ROOT.war
 
 
 CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
