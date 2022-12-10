@@ -19,9 +19,9 @@ CMD ["bash"]
 MAINTAINER bhaskarndas@gmail.com
 
 
-WORKDIR /usr/local/tomcat/webapps
-RUN curl -O -L https://github.com/bhaskarndas/sample-war/raw/main/sampletest.war
-RUN mv sampletest.war ROOT.war
-
+# copy wwar file from target to webapps
+COPY target/backend.war /usr/local/tomcat/webapps/
+# print ls
+RUN ls -l
 
 CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
