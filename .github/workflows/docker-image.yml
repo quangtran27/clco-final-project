@@ -23,10 +23,9 @@ jobs:
       - name: Connect to EC2 instance and pull the image from Docker Hub
         uses: appleboy/ssh-action@master
         with:
-          SSH_PRIVATE_KEY: ${ { secrets.EC2_KEY }}
-          REMOTE_HOST: ${ { secrets.EC2_HOST }}
-          REMOTE_USER: ${ { secrets.EC2_USERNAME }}
-          # TARGET: ${ { secrets.EC2_TARGET_DIR }}
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_KEY }}
           script: |
             docker pull nhan2947/student-management-api:latest
             docker run -d -p 8080:8080 nhan2947/student-management-api:latest
