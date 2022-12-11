@@ -19,6 +19,9 @@ CMD ["bash"]
 
 
 # rebuild the war file
+RUN ls -l
+RUN cd /home/StudentManagementAPI
+RUN ls -l
 RUN mvn clean package
 
 # copy wwar file from target to webapps
