@@ -11,14 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       #  connect to ec2 instance and pull the image from docker hub, then run the image
       - name: Connect to EC2 instance and pull the image from Docker Hub
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.EC2_KEY }}
-          script: |
-            docker pull nhan2947/student-management-api:latest
-            docker run -d -p 8080:8080 nhan2947/student-management-api:latest
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
+          EC2_KEY: ${{ secrets.EC2_KEY }}
+        run: |
+          ssh -o StrictHostKeyChecking=no -i $EC2_KEY $EC2_USERNAME@$EC2_HOST "docker pull nhan2947/student-management-api:latest"
+          ssh -o StrictHostKeyChecking=no -i $EC2_KEY $EC2_USERNAME@$EC2_HOST "docker run -d -p 8080:8080 nhan2947/student-management-api:latest"
