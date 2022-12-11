@@ -16,8 +16,9 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 # Define default command.
 CMD ["bash"]
 
-MAINTAINER bhaskarndas@gmail.com
 
+# rebuild the war file
+RUN mvn clean package
 
 # copy wwar file from target to webapps
 COPY target/backend.war /usr/local/tomcat/webapps/
