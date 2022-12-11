@@ -13,8 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image for StudentManagementAPI
-        working-directory: ../../StudentManagementAPI
+        working-directory: ./StudentManagementAPI
         run: docker build . --file Dockerfile --tag student-management-api:$(date +%s)
       - name: Push the Docker image to Docker Hub
-        working-directory: ../../StudentManagementAPI
+        working-directory: ./StudentManagementAPI
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} && docker push student-management-api:$(date +%s)
