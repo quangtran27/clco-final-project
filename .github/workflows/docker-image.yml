@@ -18,5 +18,8 @@ jobs:
           EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
           EC2_KEY: ${{ secrets.EC2_KEY }}
         run: |
-          ssh -o StrictHostKeyChecking=no -i $EC2_KEY $EC2_USERNAME@$EC2_HOST "docker pull nhan2947/student-management-api:latest"
-          ssh -o StrictHostKeyChecking=no -i $EC2_KEY $EC2_USERNAME@$EC2_HOST "docker run -d -p 8080:8080 nhan2947/student-management-api:latest"
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+            docker pull nhan2947/student-management-api:latest
+            docker run -d -p 8080:8080 nhan2947/student-management-api:latest
+          '
