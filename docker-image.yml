@@ -3,13 +3,12 @@ name: Docker Image CI
 on:
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
+    paths:
+      - "StudentManagementAPI/**"
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image for StudentManagementAPI
@@ -19,3 +18,15 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} && docker push student-management-api:$(date +%s)
         # I have created a secret in the repository settings with the name DOCKER_USERNAME and DOCKER_PASSWORD.
         # I have also created a repository in Docker Hub with the name student-management-api.
+
+      #  connect to ec2 instance and pull the image from docker hub, then run the image
+      - name: Connect to EC2 instance and pull the image from Docker Hub
+        uses: appleboy/ssh-action@master
+        with:
+          SSH_PRIVATE_KEY: ${ { secrets.EC2_KEY }}
+          REMOTE_HOST: ${ { secrets.EC2_HOST }}
+          REMOTE_USER: ${ { secrets.EC2_USERNAME }}
+          # TARGET: ${ { secrets.EC2_TARGET_DIR }}
+          script: |
+            docker pull student-management-api:$(date +%s)
+            docker run -d -p 8080:8080 student-management-api:$(date +%s)
