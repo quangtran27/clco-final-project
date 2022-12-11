@@ -72,7 +72,29 @@ namespace GUI.Controllers
         // GET: StudentController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var url = "http://54.165.116.235:8080/student/get?id=" + id.ToString();
+
+            var request = WebRequest.Create(url);
+            request.Method = "GET";
+
+            using var webResponse = request.GetResponse();
+            using var webStream = webResponse.GetResponseStream();
+
+            using var reader = new StreamReader(webStream);
+            var json_data = reader.ReadToEnd();
+            var json = JsonSerializer.Deserialize<StudentModel>(json_data);
+            var student = new StudentModel();
+
+            if (json != null)
+            {
+                student.id = json.id;
+                student.fullName = json.fullName;
+                student.gender = json.gender;
+                student.major = json.major;
+                student.birthday = json.birthday;
+                student.gpa = json.gpa;
+            }
+            return View(student);
         }
 
         // POST: StudentController/Edit/5

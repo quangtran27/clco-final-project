@@ -58,7 +58,7 @@
                 </td>
                 <td class="row">
                     <div class="col-4">
-                        <a class="btn btn-success" href="@Url.Action("Edit", "Edit", new { id=item.id })">Edit</a>
+                        <a class="btn btn-success" href="@Url.Action("Edit", "Student", new { id=item.id })">Edit</a>
                     </div>
                     <form action="http://54.165.116.235:8080/student/delete" method="post" class="col-4">
                         <input type="hidden" value="@item.id" name="id">
