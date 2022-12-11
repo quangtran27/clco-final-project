@@ -3,8 +3,6 @@ name: Docker Image CI
 on:
   push:
     branches: ["main"]
-    paths:
-      - "StudentManagementAPI/**"
 
 jobs:
   build:
@@ -19,16 +17,6 @@ jobs:
         # I have created a secret in the repository settings with the name DOCKER_USERNAME and DOCKER_PASSWORD.
         # I have also created a repository in Docker Hub with the name student-management-api.
 
-on:
-  push:
-    branches: ["main"]
-    paths:
-      - "GUI/**"
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image for GUI
         run: cd GUI && docker build . --file Dockerfile --tag nhan2947/student-management-gui:latest
