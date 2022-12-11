@@ -28,5 +28,5 @@ jobs:
           REMOTE_USER: ${ { secrets.EC2_USERNAME }}
           # TARGET: ${ { secrets.EC2_TARGET_DIR }}
           script: |
-            docker pull student-management-api:$(date +%s)
-            docker run -d -p 8080:8080 student-management-api:$(date +%s)
+            docker pull student-management-api:$(date +%Y%m%d%H)
+            docker run -d -p 8080:8080 student-management-api:$(date +%Y%m%d%H)
