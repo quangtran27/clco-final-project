@@ -72,7 +72,7 @@ namespace GUI.Controllers
         // GET: StudentController/Edit/5
         public ActionResult Edit(int id)
         {
-            var url = "http://54.165.116.235:8080/student/get?id=" + id.ToString();
+            var url = "http://34.201.150.254:8080/student/get?id=" + id.ToString();
 
             var request = WebRequest.Create(url);
             request.Method = "GET";
