@@ -4,7 +4,7 @@
 ##### GVHD: TS.Huỳnh Xuân Phụng
 
 ---
-_Thành viên nhóm 3_
+_Thành viên nhóm 3 bao gồm_
 | STT | Họ tên | MSSV |
 | :---| :--- | :--- |
 | 1 | Phan Duy Lâm | 20110322 |
