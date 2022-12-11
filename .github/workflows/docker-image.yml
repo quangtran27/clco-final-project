@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image for StudentManagementAPI
-        run: cd StudentManagementAPI && docker build . --file Dockerfile --tag student-management-api:$(date +%s)
+        run: cd StudentManagementAPI && docker build . --file Dockerfile --tag student-management-api:latest
         # push the image to docker hub
       - name: Push the Docker image to Docker Hub
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} && docker push student-management-api:$(date +%s)
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} && docker push student-management-api:latest
         # I have created a secret in the repository settings with the name DOCKER_USERNAME and DOCKER_PASSWORD.
         # I have also created a repository in Docker Hub with the name student-management-api.
 
@@ -28,5 +28,5 @@ jobs:
           REMOTE_USER: ${ { secrets.EC2_USERNAME }}
           # TARGET: ${ { secrets.EC2_TARGET_DIR }}
           script: |
-            docker pull student-management-api:$(date +%Y%m%d%H)
-            docker run -d -p 8080:8080 student-management-api:$(date +%Y%m%d%H)
+            docker pull student-management-api:latest
+            docker run -d -p 8080:8080 student-management-api:latest
