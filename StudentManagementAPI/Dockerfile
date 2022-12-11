@@ -17,17 +17,18 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 # Define default command.
 CMD ["bash"]
 
-
-# rebuild the war file
-RUN ls -l
-RUN cd /home/StudentManagementAPI
-RUN ls -l
-RUN mvn clean package
-
-# copy wwar file from target to webapps
-COPY target/backend.war /usr/local/tomcat/webapps/
-#  rename war file to ROOT.war
+#  copy whole directory to docker
+COPY . /usr/local/tomcat/webapps/
+#  change directory to webapps
+WORKDIR /usr/local/tomcat/webapps/
+#  build war file
+RUN mvn clean install
+#  move war file
+RUN mv /usr/local/tomcat/webapps/target/backend.war /usr/local/tomcat/webapps/backend.war
+#  rename war file
 RUN mv /usr/local/tomcat/webapps/backend.war /usr/local/tomcat/webapps/ROOT.war
+#  change directory to tomcat
+WORKDIR /usr/local/tomcat/
 # print ls
 RUN ls -l /usr/local/tomcat/webapps/
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
