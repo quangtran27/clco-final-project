@@ -7,7 +7,7 @@
   </head>
 
   <body>
-    <h1>Student Management API after deploy ne nha</h1>
+    <h1>Student Management API after deploy </h1>
   </body>
 
   </html>
