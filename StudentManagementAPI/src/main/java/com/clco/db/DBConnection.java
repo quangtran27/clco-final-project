@@ -13,7 +13,7 @@ public class DBConnection {
     Class.forName("com.mysql.cj.jdbc.Driver");
 
     // Assign database parameters
-    String url = "jdbc:mysql://3.82.117.24:3306/db?useUnicode=true&characterEncoding=UTF-8";
+    String url = "jdbc:mysql://ec2-3-82-117-24.compute-1.amazonaws.com:3306/db?useUnicode=true&characterEncoding=UTF-8";
     String user = "root";
     String password = "300102";
 
