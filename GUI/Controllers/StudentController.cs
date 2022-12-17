@@ -11,7 +11,7 @@ namespace GUI.Controllers
         // GET: StudentController
         public ActionResult Index()
         {
-            var url = "http://54.91.99.234:8080/student/get-all";
+            var url = "http://3.82.117.24:8080/student/get-all";
 
             var request = WebRequest.Create(url);
             request.Method = "GET";
@@ -72,7 +72,7 @@ namespace GUI.Controllers
         // GET: StudentController/Edit/5
         public ActionResult Edit(int id)
         {
-            var url = "http://54.91.99.234:8080/student/get?id=" + id.ToString();
+            var url = "http://3.82.117.24:8080/student/get?id=" + id.ToString();
 
             var request = WebRequest.Create(url);
             request.Method = "GET";
