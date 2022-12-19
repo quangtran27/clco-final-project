@@ -1,0 +1,57 @@
+﻿@model GUI.Models.StudentModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Create</h1>
+
+<h4 class="text-center">StudentModel</h4>
+<div style="padding-left: 25%; padding-right: 25%"><hr /></div>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form action="http://ec2-3-82-117-24.compute-1.amazonaws.com:8080/student/add" method="post">
+            <div validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group align-content-center">
+                <label for="id" class="control-label">id</label>
+                <input name="id" class="form-control" />
+                <span validation-for="id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="fullName" class="control-label">fullName</label>
+                <input name="fullName" class="form-control" />
+                <span validation-for="fullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="gender" class="control-label">gender</label>
+                <input name="gender" class="form-control" />
+                <span validation-for="gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="major" class="control-label">major</label>
+                <input name="major" class="form-control" />
+                <span validation-for="major" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="birthday" class="control-label">birthday</label>
+                <input name="birthday" class="form-control" type="text"/>
+                <span validation-for="birthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="gpa" class="control-label">gpa</label>
+                <input name="gpa" class="form-control" type="number" step="0.1" />
+                <span validation-for="gpa" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3 cente">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

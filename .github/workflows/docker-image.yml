@@ -3,19 +3,25 @@ name: Docker Image CI
 on:
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image for StudentManagementAPI
-        working-directory: ./StudentManagementAPI
-        run: docker build . --file Dockerfile --tag nhan2947/student-management-api:$(date +%Y%m%d%H)
-        
+        run: cd StudentManagementAPI && docker build . --file Dockerfile --tag nhan2947/student-management-api:latest
+        # push the image to docker hub
       - name: Push the Docker image to Docker Hub
-        working-directory: ./StudentManagementAPI
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} && docker push nhan2947/student-management-api:$(date +%Y%m%d%H)
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} && docker push nhan2947/student-management-api:latest
+        # I have created a secret in the repository settings with the name DOCKER_USERNAME and DOCKER_PASSWORD.
+        # I have also created a repository in Docker Hub with the name student-management-api.
+
+      - uses: actions/checkout@v3
+      - name: Build the Docker image for GUI
+        run: cd GUI && docker build . --file Dockerfile --tag nhan2947/student-management-gui:latest
+        # push the image to docker hub
+      - name: Push the Docker image to Docker Hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} && docker push nhan2947/student-management-gui:latest
+        # I have created a secret in the repository settings with the name DOCKER_USERNAME and DOCKER_PASSWORD.
+        # I have also created a repository in Docker Hub with the name student-management-gui.

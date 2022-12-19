@@ -1,0 +1,71 @@
+﻿@model IEnumerable<GUI.Models.StudentModel>
+
+@{
+    ViewData["Title"] = "ListAllStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ListAllStudent</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Full Name
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Major
+            </th>
+            <th>
+                Birthday
+            </th>
+            <th>
+                Gpa
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.major)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.birthday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gpa)
+                </td>
+                <td class="row">
+                    <div class="col-4">
+                        <a class="btn btn-success" href="@Url.Action("Edit", "Student", new { id=item.id })">Edit</a>
+                    </div>
+                    <form action="http://ec2-3-82-117-24.compute-1.amazonaws.com:8080/student/delete" method="post" class="col-4">
+                        <input type="hidden" value="@item.id" name="id">
+                        <input type="submit" value="delete" class="btn btn-danger">
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
